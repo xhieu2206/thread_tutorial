@@ -14,25 +14,19 @@ int main() {
 
   printf("My process ID %d\n", getpid());
 
-  for (j = 0; j < NUM_THREADS; j++)
+  for (j = 0; j < NUM_THREADS; j++){
+    pthread_create(&tid[j], NULL, hello, &j);
+  }
 
-    pthread_create([1]);
-
- 
-
-  for (int i = 0; i < NUM_THREADS; i++)
-
-    pthread_join([2]);
+  for (int i = 0; i < NUM_THREADS; i++){
+    pthread_join(tid[i], NULL);
+  }
 
  
   return 0;
 
 }
 
- 
-
 void *hello(void * my_id) {
-
   printf("Hello World from branch thread %d\n", *(int * ) my_id);
-
 }
