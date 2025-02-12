@@ -11,7 +11,7 @@ int main(void) {
 
   childPID = fork();
 
-  if () {
+  if (childPID == 0) {
     printf("Child process ID: %d\n", getpid());
 
     for (i = 0;; ++i) /*both processes do this*/ {
@@ -21,7 +21,7 @@ int main(void) {
 
       printf("CHILD%d\n", mynum);
     }
-  } else if ([3]) {
+  } else if (childPID > 0) {
     printf("Parent process ID: %d\n", getpid());
 
     for (i = 0;; ++i) /*both processes do this*/ {
@@ -29,9 +29,7 @@ int main(void) {
 
       printf("PARENT%d\n", mynum);
     }
-  } else // fork failed
-
-  {
+  } else {
     printf("\n Fork failed, quitting!!!!!!\n");
 
     return 1;
